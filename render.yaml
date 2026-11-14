@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: cineclub-api
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    # index.html de Tomcat: responde 200 sin depender de la base de datos
+    healthCheckPath: /cineclub_api/
+    autoDeploy: true
+    envVars:
+      # Tomcat escucha en 8080; hay que decírselo a Render
+      - key: PORT
+        value: "8080"
+      # sync: false = Render los pide al crear el Blueprint y no los guarda en el repo
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false

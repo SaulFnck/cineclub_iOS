@@ -1,0 +1,29 @@
+meta {
+  name: Actualizar pelicula
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{baseUrl}}/peliculas/{{idPelicula}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "titulo": "Pelicula Bruno (Edicion especial)",
+    "genero": "Accion",
+    "director": "Director Prueba",
+    "fechaEstreno": "2025-05-01",
+    "costoRenta": 95.50,
+    "stockDisponible": 1,
+    "imagenArchivo": "pelicula_bruno.jpg"
+  }
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

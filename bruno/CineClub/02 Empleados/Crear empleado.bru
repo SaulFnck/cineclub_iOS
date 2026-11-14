@@ -1,0 +1,31 @@
+meta {
+  name: Crear empleado
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/empleados
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombreCompleto": "Empleado Bruno",
+    "correo": "bruno.empleado@cineclub.com",
+    "password": "admin123"
+  }
+}
+
+script:post-response {
+  if (res.status === 201) {
+    bru.setEnvVar("idEmpleado", res.body.idEmpleado);
+  }
+}
+
+tests {
+  test("status 201", function () {
+    expect(res.status).to.equal(201);
+  });
+}

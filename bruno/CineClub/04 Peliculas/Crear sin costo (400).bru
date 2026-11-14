@@ -1,0 +1,24 @@
+meta {
+  name: Crear sin costo (400)
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/peliculas
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "titulo": "Sin precio",
+    "genero": "Drama"
+  }
+}
+
+tests {
+  test("status 400", function () {
+    expect(res.status).to.equal(400);
+  });
+}

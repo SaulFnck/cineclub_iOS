@@ -1,0 +1,17 @@
+meta {
+  name: Mis rentas activas
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/usuarios/{{idUsuario}}/rentas?estado=activas
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

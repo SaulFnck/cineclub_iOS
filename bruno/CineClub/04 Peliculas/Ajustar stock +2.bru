@@ -1,0 +1,21 @@
+meta {
+  name: Ajustar stock +2
+  type: http
+  seq: 9
+}
+
+patch {
+  url: {{baseUrl}}/peliculas/{{idPelicula}}/stock
+  body: json
+  auth: none
+}
+
+body:json {
+  { "cantidad": 2 }
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

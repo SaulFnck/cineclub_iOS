@@ -1,0 +1,35 @@
+meta {
+  name: Crear pelicula
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/peliculas
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "titulo": "Pelicula Bruno",
+    "genero": "Accion",
+    "director": "Director Prueba",
+    "fechaEstreno": "2025-05-01",
+    "costoRenta": 80.00,
+    "stockDisponible": 1,
+    "imagenArchivo": "pelicula_bruno.jpg"
+  }
+}
+
+script:post-response {
+  if (res.status === 201) {
+    bru.setEnvVar("idPelicula", res.body.idPelicula);
+  }
+}
+
+tests {
+  test("status 201", function () {
+    expect(res.status).to.equal(201);
+  });
+}

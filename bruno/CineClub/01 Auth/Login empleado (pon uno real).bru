@@ -1,0 +1,30 @@
+meta {
+  name: Login empleado (pon uno real)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "correo": "carlos@videoclu.com",
+    "password": "$2b$10$abcdefghijklmnopqrstuvwxyz1234567"
+  }
+}
+
+script:post-response {
+  if (res.status === 200) {
+    bru.setEnvVar("idEmpleado", res.body.id);
+  }
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

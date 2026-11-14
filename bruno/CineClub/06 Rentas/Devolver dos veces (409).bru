@@ -1,0 +1,17 @@
+meta {
+  name: Devolver dos veces (409)
+  type: http
+  seq: 9
+}
+
+patch {
+  url: {{baseUrl}}/rentas/{{idRenta}}/devolucion
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 409", function () {
+    expect(res.status).to.equal(409);
+  });
+}

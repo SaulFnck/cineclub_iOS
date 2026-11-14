@@ -1,0 +1,25 @@
+meta {
+  name: Actualizar usuario
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/usuarios/{{idUsuario}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombreCompleto": "Cliente Mostrador Editado",
+    "correo": "mostrador@cineclub.com",
+    "password": "nueva123"
+  }
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

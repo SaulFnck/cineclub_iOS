@@ -1,0 +1,17 @@
+meta {
+  name: Obtener resenia
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/resenias/{{idResenia}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

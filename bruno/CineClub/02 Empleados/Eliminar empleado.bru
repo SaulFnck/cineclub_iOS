@@ -1,0 +1,17 @@
+meta {
+  name: Eliminar empleado
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/empleados/{{idEmpleado}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 204", function () {
+    expect(res.status).to.equal(204);
+  });
+}

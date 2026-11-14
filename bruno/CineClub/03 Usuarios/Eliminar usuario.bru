@@ -1,0 +1,17 @@
+meta {
+  name: Eliminar usuario
+  type: http
+  seq: 9
+}
+
+delete {
+  url: {{baseUrl}}/usuarios/{{idUsuario}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 204", function () {
+    expect(res.status).to.equal(204);
+  });
+}

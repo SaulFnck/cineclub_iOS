@@ -1,0 +1,17 @@
+meta {
+  name: Eliminar resenia (empleado)
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{baseUrl}}/resenias/{{idResenia}}?idEmpleado={{idEmpleado}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 204", function () {
+    expect(res.status).to.equal(204);
+  });
+}

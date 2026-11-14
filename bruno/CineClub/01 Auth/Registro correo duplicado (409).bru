@@ -1,0 +1,25 @@
+meta {
+  name: Registro correo duplicado (409)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/auth/registro
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombreCompleto": "Duplicado",
+    "correo": "bruno.usuario@cineclub.com",
+    "password": "1234"
+  }
+}
+
+tests {
+  test("status 409", function () {
+    expect(res.status).to.equal(409);
+  });
+}

@@ -1,0 +1,17 @@
+meta {
+  name: Eliminar renta
+  type: http
+  seq: 11
+}
+
+delete {
+  url: {{baseUrl}}/rentas/{{idRenta}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 204", function () {
+    expect(res.status).to.equal(204);
+  });
+}

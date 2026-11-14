@@ -1,0 +1,17 @@
+meta {
+  name: Registrar devolucion (stock +1)
+  type: http
+  seq: 8
+}
+
+patch {
+  url: {{baseUrl}}/rentas/{{idRenta}}/devolucion
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

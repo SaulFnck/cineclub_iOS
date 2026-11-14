@@ -1,0 +1,17 @@
+meta {
+  name: Filtrar genero y disponibles
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/peliculas?genero=Accion&disponibles=true
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

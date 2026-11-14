@@ -1,0 +1,24 @@
+meta {
+  name: Login incorrecto (401)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "correo": "nadie@cineclub.com",
+    "password": "mal"
+  }
+}
+
+tests {
+  test("status 401", function () {
+    expect(res.status).to.equal(401);
+  });
+}

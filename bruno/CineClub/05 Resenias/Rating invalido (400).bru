@@ -1,0 +1,26 @@
+meta {
+  name: Rating invalido (400)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/resenias
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "idPelicula": {{idPelicula}},
+    "idUsuario": {{idUsuario}},
+    "comentario": "Rating fuera de rango",
+    "rating": 6
+  }
+}
+
+tests {
+  test("status 400", function () {
+    expect(res.status).to.equal(400);
+  });
+}

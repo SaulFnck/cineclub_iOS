@@ -1,0 +1,31 @@
+meta {
+  name: Crear renta (stock -1)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/rentas
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "idPelicula": {{idPelicula}},
+    "idUsuario": {{idUsuario}},
+    "idEmpleado": {{idEmpleado}}
+  }
+}
+
+script:post-response {
+  if (res.status === 201) {
+    bru.setEnvVar("idRenta", res.body.idRenta);
+  }
+}
+
+tests {
+  test("status 201", function () {
+    expect(res.status).to.equal(201);
+  });
+}

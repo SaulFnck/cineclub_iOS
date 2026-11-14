@@ -1,0 +1,17 @@
+meta {
+  name: Eliminar resenia (autor)
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{baseUrl}}/resenias/{{idResenia}}?idUsuario={{idUsuario}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 204", function () {
+    expect(res.status).to.equal(204);
+  });
+}

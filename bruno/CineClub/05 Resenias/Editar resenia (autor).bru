@@ -1,0 +1,25 @@
+meta {
+  name: Editar resenia (autor)
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/resenias/{{idResenia}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "idUsuario": {{idUsuario}},
+    "comentario": "Cambie de opinion, esta bien",
+    "rating": 3
+  }
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

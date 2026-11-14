@@ -1,0 +1,17 @@
+meta {
+  name: Test conexion BD
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/test-db
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

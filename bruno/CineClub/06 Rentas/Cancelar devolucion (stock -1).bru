@@ -1,0 +1,17 @@
+meta {
+  name: Cancelar devolucion (stock -1)
+  type: http
+  seq: 10
+}
+
+patch {
+  url: {{baseUrl}}/rentas/{{idRenta}}/cancelar-devolucion
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

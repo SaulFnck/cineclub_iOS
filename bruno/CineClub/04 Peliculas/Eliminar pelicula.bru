@@ -1,0 +1,17 @@
+meta {
+  name: Eliminar pelicula
+  type: http
+  seq: 13
+}
+
+delete {
+  url: {{baseUrl}}/peliculas/{{idPelicula}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 204", function () {
+    expect(res.status).to.equal(204);
+  });
+}

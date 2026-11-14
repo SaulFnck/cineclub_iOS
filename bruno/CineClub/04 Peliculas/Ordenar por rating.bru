@@ -1,0 +1,17 @@
+meta {
+  name: Ordenar por rating
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/peliculas?orden=rating
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

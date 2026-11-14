@@ -1,0 +1,21 @@
+meta {
+  name: Ajustar stock negativo (409)
+  type: http
+  seq: 10
+}
+
+patch {
+  url: {{baseUrl}}/peliculas/{{idPelicula}}/stock
+  body: json
+  auth: none
+}
+
+body:json {
+  { "cantidad": -999 }
+}
+
+tests {
+  test("status 409", function () {
+    expect(res.status).to.equal(409);
+  });
+}

@@ -1,0 +1,17 @@
+meta {
+  name: Rentas vencidas
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/rentas?estado=vencidas
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

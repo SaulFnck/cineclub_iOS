@@ -1,0 +1,17 @@
+meta {
+  name: Mis rentas
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/usuarios/{{idUsuario}}/rentas
+  body: none
+  auth: none
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

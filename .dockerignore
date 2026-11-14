@@ -1,0 +1,14 @@
+# Artefactos locales: el WAR se compila dentro de la imagen
+**/target
+**/*.war
+
+# Repositorio y documentación
+.git
+.gitignore
+bruno
+*.md
+
+# IDEs
+**/.idea
+**/*.iml
+**/nbproject

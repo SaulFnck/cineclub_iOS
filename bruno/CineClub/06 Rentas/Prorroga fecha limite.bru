@@ -1,0 +1,21 @@
+meta {
+  name: Prorroga fecha limite
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{baseUrl}}/rentas/{{idRenta}}
+  body: json
+  auth: none
+}
+
+body:json {
+  { "fechaLimiteDevolucion": "2026-12-31T20:00:00" }
+}
+
+tests {
+  test("status 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}
